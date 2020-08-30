@@ -11,10 +11,19 @@
   left: 70%;
   top: 45vh;
   font-size: 30px;
+  background-color: orange ;
+}
+.name{
+    position: absolute;
+    left:63%;
+    top: 100px;
+    font-size:50px;
+    color: darkgoldenrod;
+    
 }
 
 a,
 a:visited {
-  color: tomato;
+  color: black;
   text-decoration: none;
 }
