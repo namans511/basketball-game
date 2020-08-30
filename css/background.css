@@ -8,7 +8,7 @@ html {
   position: relative;
 }
 
-#back {
+#backCanvas {
   background-color: lightgrey;
   /* overflow: hidden; */
   position: absolute;
@@ -17,10 +17,10 @@ html {
   z-index: -1;
 }
 
-#main {
+#mainCanvas {
   position: absolute;
   left: 0%;
   top: 0%;
-  background-color: tomato;
+  /* background-color: tomato; */
   z-index: 2;
 }
