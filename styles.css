@@ -13,6 +13,11 @@
   font-size: 30px;
   background-color: orange ;
 }
+.ball{
+    width: 100px;
+    margin-top: 420px;
+    margin-left: 70px;
+}
 .name{
     position: absolute;
     left:63%;
@@ -20,6 +25,9 @@
     font-size:50px;
     color: darkgoldenrod;
     
+}
+.body{
+    background-color: rgb(7, 5, 0);
 }
 
 a,
