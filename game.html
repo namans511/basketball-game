@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/background.css" />
   </head>
-  <body class="body">
-    <div ><img class="ball" src="images/ball.png" alt=""></div>
+  <body>
+    <div class="screen">
+      <canvas id="backCanvas"></canvas>
+      <canvas id="mainCanvas"></canvas>
+    </div>
+    <script src="javascript/background.js"></script>
+    <script src="javascript/main.js"></script>
   </body>
 </html>
