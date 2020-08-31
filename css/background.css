@@ -9,7 +9,7 @@ html {
 }
 
 #backCanvas {
-  background-color: lightgrey;
+  background-color:#07689f;
   /* overflow: hidden; */
   position: absolute;
   left: 0%;
