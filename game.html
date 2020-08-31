@@ -6,8 +6,8 @@
     <title>Game</title>
     <link rel="stylesheet" href="css/background.css" />
   </head>
-  <body>
-    <div class="screen">
+  <body onkeydown="spacePress(event)" onkeyup="spaceRelease(event)">
+    <div id="screen">
       <canvas id="backCanvas"></canvas>
       <canvas id="mainCanvas"></canvas>
     </div>
