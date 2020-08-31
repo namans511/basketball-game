@@ -27,7 +27,7 @@ backctx.stroke();
 //another symmetrical 
 
 //draw circle
-backctx.moveTo(-200,0);
+backctx.beginPath();
  backctx.translate(-300, 0);
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
 backctx.stroke();
