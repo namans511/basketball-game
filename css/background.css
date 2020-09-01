@@ -13,6 +13,10 @@ html {
   position: relative;
 }
 
+#power {
+  padding: 10px;
+}
+
 #backCanvas {
   background-color: #07689f;
   /* overflow: hidden; */
