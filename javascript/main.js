@@ -9,9 +9,9 @@ ball.src = "images/ball.png";
 ball.onload = drawBall;
 
 function drawBall() {
-  ctx.drawImage(ball, 50, 400, 100, 100);
+  ctx.drawImage(ball, 50, 360, 100, 100);
   keyPressed = false;
-  ypos = 400;
+  ypos = 360;
   xpos = 50;
   yacc = 0.2;
   yvel = 12;
@@ -21,7 +21,7 @@ function drawBall() {
 
 var id;
 var keyPressed = false;
-var ypos = 400;
+var ypos = 360;
 var xpos = 50;
 var yacc = 1;
 var yvel = 12;
