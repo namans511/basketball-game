@@ -6,16 +6,19 @@ canvas.height = window.innerHeight;
 //adding ball to main canvas
 var ball = new Image();
 ball.src = "images/ball.png";
-ball.onload = function () {
+ball.onload = drawBall;
+
+function drawBall() {
   ctx.drawImage(ball, 50, 400, 100, 100);
-};
+}
 
 var id;
 var keyPressed = false;
-var ypos = 5;
-var xpos = 10;
+var ypos = 400;
+var xpos = 50;
 var yacc = 0.2;
 var yvel = 12;
+var xvel = 10;
 
 //moving ball on space press
 function spacePress(event) {
@@ -23,11 +26,11 @@ function spacePress(event) {
     keyPressed = true;
     id = setInterval(function () {
       ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      ctx.drawImage(ball, 50 + xpos, 400 - ypos, 100, 100);
+      ctx.drawImage(ball, xpos, ypos, 100, 100);
       yvel = yvel - yacc;
-      ypos += yvel;
-      xpos += 8;
-    }, 10);
+      ypos -= yvel;
+      xpos += xvel;
+    }, 15);
   }
   // console.log("start");
 }
