@@ -13,8 +13,11 @@ var screen = {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
 };
+var ctx = screen.context;
 
 //setting up the basketball
+//x=40
+//y=3/4*height
 function Ball(x, y) {
   this.ballimg = document.getElementById("basketball");
   this.x = x;
@@ -31,13 +34,13 @@ Ball.prototype.draw = function () {
 Ball.prototype.move = function () {
   this.draw();
   this.x += this.xVel;
-  this.y += this.yVel;
+  this.y -= this.yVel;
   this.yVel -= this.yAcc;
 };
 
 Ball.prototype.reset = function () {
   this.x = 40;
-  this.y = (3 / 4) * canvas.height - 100;
+  this.y = (3 / 4) * height - 100;
   this.draw();
 };
 
@@ -47,6 +50,8 @@ Ball.prototype.reset = function () {
 function Angle(x, y) {
   this.x = x;
   this.y = y;
+  this.xCenter = 90;
+  this.yCenter = (3 / 4) * height + 70;
   this.direction = 1;
 }
 
@@ -55,7 +60,7 @@ Angle.prototype.draw = function () {
   ctx.beginPath();
   ctx.fillStyle = "green";
   ctx.beginPath();
-  ctx.arc(90, (6 * canvas.height) / 8 + 70, 70, 0, Math.PI, true);
+  ctx.arc(90, (6 * height) / 8 + 70, 70, 0, Math.PI, true);
   ctx.closePath();
   var grd = ctx.createLinearGradient(0, 0, 200, 0);
   grd.addColorStop(0.3, "orange");
@@ -68,16 +73,18 @@ Angle.prototype.draw = function () {
   ctx.beginPath();
   ctx.strokeStyle = "white";
   ctx.lineWidth = 2.5;
-  ctx.moveTo(x, y + 10);
-  ctx.lineTo(90, (6 * canvas.height) / 8 + 70);
+  ctx.moveTo(this.x, this.y + 10);
+  ctx.lineTo(90, (6 * height) / 8 + 70);
   ctx.stroke();
 };
 
 Angle.prototype.update = function () {
   this.draw();
-  if (y > (3 / 4) * height + 50) {
-    dir = -1;
-  } else if (x < 90) {
-    dir = 1;
+  this.x += this.direction;
+  this.y += this.direction;
+  if (this.y > (3 / 4) * height + 50) {
+    this.direction = -1;
+  } else if (this.x < 90) {
+    this.direction = 1;
   }
 };
