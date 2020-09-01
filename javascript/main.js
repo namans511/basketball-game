@@ -16,6 +16,7 @@ function drawBall() {
   yacc = 0.2;
   yvel = 12;
   xvel = 10;
+  power = 0;
 }
 
 var id;
@@ -31,6 +32,7 @@ var power = 0;
 //moving ball on space press
 function spacePress(event) {
   // console.log("start");
+  // power = 0;
   if (event.keyCode == 32 && keyPressed == false) {
     keyPressed = true;
     powerMeter = setInterval(function () {
@@ -45,10 +47,12 @@ function spaceRelease(event) {
   // clearInterval(id);
   clearInterval(powerMeter);
   if (event.keyCode == 32 && keyPressed == true) {
+    clearInterval(angleid);
     keyPressed = false;
     id = setInterval(function () {
       ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       if (xpos > canvas.width || ypos > canvas.height) {
+        angleid = setInterval(angleDraw, 80);
         drawBall();
         clearInterval(id);
       }
@@ -61,5 +65,43 @@ function spaceRelease(event) {
   keyPressed = false;
   // console.log("clear");
 }
-
 //angle bar
+var x = 90;
+var y = (6 * canvas.height) / 8;
+var f = 1;
+var limity = (6 * canvas.height) / 8 + 60;
+var limitx = x + 60;
+
+var angleid = setInterval(angleDraw, 80);
+
+function angleDraw() {
+  ctx.clearRect(20, (6 * canvas.height) / 8, 140, 110);
+
+  ctx.beginPath();
+  ctx.fillStyle = "green";
+
+  ctx.fillRect(20, (6 * canvas.height) / 8, 140, 110);
+
+  ctx.beginPath();
+  ctx.strokeStyle = "white";
+  ctx.lineWidth = 2.5;
+  ctx.moveTo(x, y + 10);
+  ctx.lineTo(90, (6 * canvas.height) / 8 + 70);
+  ctx.stroke();
+  if (x < limitx && f == 1) {
+    x++;
+    y++;
+  }
+  if (x > limitx - 10) {
+    f = 2;
+  }
+  if (f == 2) {
+    x--;
+    y--;
+  }
+  if (x < 90) {
+    f = 1;
+  }
+}
+
+//backctx.closePath();

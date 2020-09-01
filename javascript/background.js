@@ -124,47 +124,42 @@ for (var i = 0; i < 5; i++) {
 
 //angle bar
 
-var x=-416;
-var y=120;
-var f=1;
-    var id=setInterval(function() {
-  //  requestAnimationFrame(animate);
-   // backctx.clearRect(0,0,innerWidth,innerHeight);
-      
-      //this.direction = -1; // Starts out moving left
-      //start
-     backctx.clearRect(-486,100,140,100);
-     
-backctx.beginPath();
-backctx.fillStyle = "green";
-backctx.fillRect(-486, 100, 140, 110);
+// var x = -416;
+// var y = 120;
+// var f = 1;
+// var angleid = setInterval(angleDraw, 80);
 
+// function angleDraw() {
+//   //  requestAnimationFrame(animate);
+//   // backctx.clearRect(0,0,innerWidth,innerHeight);
 
-      backctx.beginPath();
-      backctx.strokeStyle = 'white';
-      backctx.lineWidth = 2.5;
-      backctx.moveTo(x,y );
-      backctx.lineTo(-416, 180);
-      backctx.stroke();
-      if(x<-370 && f==1)
-      {
-          x++;
-          y++;
-      }
-      if(x>-375)
-      {
-          
-          f=2;
-      }
-      if(f==2 )
-      {
-       x--;
-       y--;   
-      }
-      if(x<-416)
-      {
-          f=1;
-      }
-    },80);
-      //backctx.closePath();
+//   //this.direction = -1; // Starts out moving left
+//   //start
+//   backctx.clearRect(-486, 100, 140, 100);
 
+//   backctx.beginPath();
+//   backctx.fillStyle = "green";
+//   backctx.fillRect(-486, 100, 140, 110);
+
+//   backctx.beginPath();
+//   backctx.strokeStyle = "white";
+//   backctx.lineWidth = 2.5;
+//   backctx.moveTo(x, y);
+//   backctx.lineTo(-416, 180);
+//   backctx.stroke();
+//   if (x < -370 && f == 1) {
+//     x++;
+//     y++;
+//   }
+//   if (x > -375) {
+//     f = 2;
+//   }
+//   if (f == 2) {
+//     x--;
+//     y--;
+//   }
+//   if (x < -416) {
+//     f = 1;
+//   }
+// }
+//backctx.closePath();
