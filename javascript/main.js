@@ -12,8 +12,10 @@ ball.onload = function () {
 
 var id;
 var keyPressed = false;
-var ypos = 2;
-var xpos = 2;
+var ypos = 5;
+var xpos = 10;
+var yacc = 0.2;
+var yvel = 12;
 
 //moving ball on space press
 function spacePress(event) {
@@ -22,9 +24,10 @@ function spacePress(event) {
     id = setInterval(function () {
       ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       ctx.drawImage(ball, 50 + xpos, 400 - ypos, 100, 100);
-      ypos += 2;
-      xpos += 2;
-    }, 20);
+      yvel = yvel - yacc;
+      ypos += yvel;
+      xpos += 8;
+    }, 10);
   }
   // console.log("start");
 }
