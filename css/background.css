@@ -15,10 +15,16 @@ html {
 
 #power {
   padding: 10px;
+  color: white;
 }
 
 #backCanvas {
-  background-image: linear-gradient(90deg, rgba(5,2,75,1) 0%, rgba(4,4,140,1) 40%, rgba(115,108,241,1) 100%);;
+  background-image: linear-gradient(
+    90deg,
+    rgba(5, 2, 75, 1) 0%,
+    rgba(4, 4, 140, 1) 40%,
+    rgba(115, 108, 241, 1) 100%
+  );
   /* overflow: hidden; */
   position: absolute;
   left: 0%;
