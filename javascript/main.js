@@ -86,7 +86,18 @@ function angleDraw() {
   ctx.beginPath();
   ctx.fillStyle = "green";
 
-  ctx.fillRect(20, (6 * canvas.height) / 8, 140, 110);
+ // ctx.fillRect(20, (6 * canvas.height) / 8, 140, 110);
+ ctx.beginPath();
+ ctx.arc(90, (6 * canvas.height) / 8 + 70,70,0,Math.PI,true)
+ ctx.closePath();
+ var grd = ctx.createLinearGradient(0, 0, 200, 0);
+ grd.addColorStop(0.3, "orange");
+ grd.addColorStop(1, "yellow");
+ ctx.lineWidth = 5;
+ ctx.fillStyle = grd;
+ ctx.fill();
+ ctx.strokeStyle = 'black';
+ ctx.stroke();
 
   ctx.beginPath();
   ctx.strokeStyle = "white";
