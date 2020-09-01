@@ -13,7 +13,8 @@ html {
   position: relative;
 }
 
-#power {
+#power,
+#xy {
   padding: 10px;
   color: white;
 }

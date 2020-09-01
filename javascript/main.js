@@ -45,10 +45,16 @@ function spacePress(event) {
 //stopping ball on space realse
 function spaceRelease(event) {
   // clearInterval(id);
-  clearInterval(powerMeter);
   if (event.keyCode == 32 && keyPressed == true) {
     clearInterval(angleid);
-    keyPressed = false;
+    clearInterval(powerMeter);
+    var tan = ((6 * canvas.height) / 8 + 70 - y) / (x - 90);
+    xvel = power * Math.cos(Math.atan(tan));
+    yvel = power * Math.sin(Math.atan(tan));
+
+    document.getElementById("xy").innerHTML =
+      "x=" + x + " y=" + y + " tan=" + tan + " xvel=" + xvel + " yvel=" + yvel;
+    // keyPressed = false;
     id = setInterval(function () {
       ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       if (xpos > canvas.width || ypos > canvas.height) {
@@ -62,7 +68,7 @@ function spaceRelease(event) {
       xpos += xvel;
     }, 15);
   }
-  keyPressed = false;
+  // keyPressed = false;
   // console.log("clear");
 }
 //angle bar
