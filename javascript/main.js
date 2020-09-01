@@ -23,7 +23,7 @@ var id;
 var keyPressed = false;
 var ypos = 400;
 var xpos = 50;
-var yacc = 0.2;
+var yacc = 1;
 var yvel = 12;
 var xvel = 10;
 var powertext = document.getElementById("power");
@@ -37,7 +37,7 @@ function spacePress(event) {
     keyPressed = true;
     powerMeter = setInterval(function () {
       powertext.innerHTML = "the power is " + power;
-      power += 1;
+      power +=2;
     }, 100);
   }
 }
