@@ -9,8 +9,29 @@ backCanvas.height = window.innerHeight;
 backctx.beginPath();
 //backctx.fillStyle='#a4b494';
 //backctx.fill();
+
+/////////////////////////////////
+//BACKGROUND FILL
 backctx.fillStyle = "#838383";
 backctx.fillRect(1, 280, innerWidth, innerHeight);
+///////////////////////////////
+
+//anglebackground
+backctx.beginPath();
+angleBackgroundDraw(backctx);
+// backctx.beginPath();
+// backctx.arc(90, (6 * window.height) / 8 + 70, 70, 0, Math.PI, true);
+// backctx.closePath();
+// var grd = backctx.createLinearGradient(0, 0, 200, 0);
+// grd.addColorStop(0.3, "orange");
+// grd.addColorStop(1, "yellow");
+// backctx.lineWidth = 5;
+// backctx.fillStyle = grd;
+// backctx.fill();
+// backctx.strokeStyle = "black";
+// backctx.stroke();
+
+backctx.beginPath();
 backctx.translate(backCanvas.width / 1.8, (2 * backCanvas.height) / 2.8);
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
 backctx.stroke();
@@ -121,6 +142,22 @@ for (var i = 0; i < 5; i++) {
   y = y + 25;
   y1 = y1 + 25;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////
+// backctx.beginPath();
+// backctx.translate(0,0);
+// backctx.fillStyle = "green";
+// backctx.beginPath();
+// backctx.arc(90, (6 * height) / 8 + 70, 70, 0, Math.PI, true);
+// backctx.closePath();
+// var grd = backctx.createLinearGradient(0, 0, 200, 0);
+// grd.addColorStop(0.3, "orange");
+// grd.addColorStop(1, "yellow");
+// backctx.lineWidth = 5;
+// backctx.fillStyle = grd;
+// backctx.fill();
+// backctx.strokeStyle = "black";
+// backctx.stroke();
 
 //angle bar
 

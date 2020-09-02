@@ -9,17 +9,18 @@ var angleid = setInterval(function () {
 var ball = new Ball(40, (3 / 4) * height - 100);
 ball.draw();
 
-
-
 var keyPressed = false;
-
 
 var powertext = document.getElementById("power");
 var powerMeter;
 var power;
 
+var keycode = document.getElementById("keycode");
+var keyy = 1;
 function spacePress(event) {
-  if (event.keyCode == 32 && keyPressed == false) {
+  keycode.innerHTML = "keycode=" + event.keyCode + " freq=" + keyy;
+  keyy += 1;
+  if (event.keyCode == 16 && keyPressed == false) {
     keyPressed = true;
     power = 8;
     powerMeter = setInterval(function () {
@@ -33,7 +34,7 @@ var velocityinfo = document.getElementById("xy");
 var shotid;
 
 function spaceRelease(event) {
-  if (event.keyCode == 32 && keyPressed == true) {
+  if (event.keyCode == 16 && keyPressed == true) {
     clearInterval(powerMeter);
     clearInterval(angleid);
     var tan = (angle.yCenter - angle.y) / (angle.x - angle.xCenter);
@@ -43,7 +44,7 @@ function spaceRelease(event) {
     shotid = setInterval(function () {
       screen.clear();
       if (ball.x > width || ball.y > height) {
-        angle.draw();
+        // angle.draw();
         var angleid = setInterval(function () {
           angle.update();
         }, 50);
