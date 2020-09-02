@@ -97,3 +97,22 @@ function angleBackgroundDraw(context) {
   context.strokeStyle = "black";
   context.stroke();
 }
+
+function Hoop(x, y, backx, backy, backheight) {
+  this.x = x;
+  this.y = y;
+  this.backx = backx;
+  this.backy = backy;
+  this.backheight = backheight;
+}
+
+Hoop.prototype.collide = function (x, y) {
+  if (
+    x + 100 > this.backx &&
+    y + 50 > this.backy &&
+    y + 50 < this.backy + this.backheight
+  ) {
+    return 1;
+  }
+  return 0;
+};

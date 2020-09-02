@@ -6,11 +6,20 @@ var angleid = setInterval(function () {
   angle.update();
 }, 50);
 
+//making hoop
+var x_back = window.width / 1.8 - 240 + 690;
+var y_back = (2 / 2.8) * window.height - 400;
+var x_hoop = window.width / 1.8 - 240 + 688;
+var y_hoop = (2 / 2.8) * window.height - 300;
+var hoop = new Hoop(x_hoop, y_hoop, x_back, y_back, 1000);
+
+//making ball
 var ball = new Ball(40, (3 / 4) * height - 100);
 ball.draw();
 
 var keyPressed = false;
 
+//powerpower
 var powertext = document.getElementById("power");
 var powerMeter;
 var power;
@@ -36,7 +45,7 @@ var shotid;
 function spaceRelease(event) {
   if (event.keyCode == 16 && keyPressed == true) {
     clearInterval(powerMeter);
-    clearInterval(angleid);
+    // clearInterval(angleid);
     var tan = (angle.yCenter - angle.y) / (angle.x - angle.xCenter);
     ball.xVel = power * Math.cos(Math.atan(tan));
     ball.yVel = power * Math.sin(Math.atan(tan));
@@ -45,9 +54,9 @@ function spaceRelease(event) {
       screen.clear();
       if (ball.x > width || ball.y > height) {
         // angle.draw();
-        var angleid = setInterval(function () {
-          angle.update();
-        }, 50);
+        // var angleid = setInterval(function () {
+        //   angle.update();
+        // }, 50);
         ball.reset();
         console.log("pehele");
         clearInterval(shotid);
@@ -55,6 +64,9 @@ function spaceRelease(event) {
         keyPressed = false;
       } else {
         ball.move();
+        if (hoop.collide(ball.x, ball.y) == 1) {
+          ball.xVel *= -1;
+        }
       }
     }, 20);
   }
