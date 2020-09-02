@@ -1,5 +1,6 @@
 var width = window.innerWidth;
 var height = window.innerHeight;
+var keyPressed = false;
 
 //setting up the screen
 var screen = {
@@ -25,6 +26,8 @@ function Ball(x, y) {
   this.xVel = 0;
   this.yVel = 0;
   this.yAcc = 1;
+  this.xpos = x;
+  this.ypos = y;
 }
 
 Ball.prototype.draw = function () {
@@ -39,8 +42,8 @@ Ball.prototype.move = function () {
 };
 
 Ball.prototype.reset = function () {
-  this.x = 40;
-  this.y = (3 / 4) * height - 100;
+  this.x = this.xpos;
+  this.y = this.ypos;
   this.draw();
 };
 
@@ -58,19 +61,6 @@ function Angle(x, y) {
 Angle.prototype.draw = function () {
   ctx = screen.context;
   ctx.beginPath();
-  ctx.fillStyle = "green";
-  ctx.beginPath();
-  ctx.arc(90, (6 * height) / 8 + 70, 70, 0, Math.PI, true);
-  ctx.closePath();
-  var grd = ctx.createLinearGradient(0, 0, 200, 0);
-  grd.addColorStop(0.3, "orange");
-  grd.addColorStop(1, "yellow");
-  ctx.lineWidth = 5;
-  ctx.fillStyle = grd;
-  ctx.fill();
-  ctx.strokeStyle = "black";
-  ctx.stroke();
-  ctx.beginPath();
   ctx.strokeStyle = "white";
   ctx.lineWidth = 2.5;
   ctx.moveTo(this.x, this.y + 10);
@@ -79,12 +69,51 @@ Angle.prototype.draw = function () {
 };
 
 Angle.prototype.update = function () {
+  this.clear();
   this.draw();
   this.x += this.direction;
   this.y += this.direction;
-  if (this.y > (3 / 4) * height + 50) {
+  // velocityinfo.innerHTML = "x=" + this.x + " y=" + this.y;
+  if (this.y > (3 / 4) * height + 40) {
     this.direction = -1;
-  } else if (this.x < 90) {
+  } else if (this.x < 115) {
     this.direction = 1;
   }
+};
+
+Angle.prototype.clear = function () {
+  screen.context.clearRect(20, (3 / 4) * height, 160, (3 / 4) * height + 70);
+};
+
+function angleBackgroundDraw(context) {
+  context.beginPath();
+  context.arc(90, (6 * height) / 8 + 70, 70, 0, Math.PI, true);
+  context.closePath();
+  var grd = context.createLinearGradient(0, 0, 200, 0);
+  grd.addColorStop(0.3, "orange");
+  grd.addColorStop(1, "yellow");
+  context.lineWidth = 5;
+  context.fillStyle = grd;
+  context.fill();
+  context.strokeStyle = "black";
+  context.stroke();
+}
+
+function Hoop(x, y, backx, backy, backheight) {
+  this.x = x;
+  this.y = y;
+  this.backx = backx;
+  this.backy = backy;
+  this.backheight = backheight;
+}
+
+Hoop.prototype.collide = function (x, y) {
+  if (
+    x + 100 > this.backx &&
+    y + 50 > this.backy &&
+    y + 50 < this.backy + this.backheight
+  ) {
+    return 1;
+  }
+  return 0;
 };

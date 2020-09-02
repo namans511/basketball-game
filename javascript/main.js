@@ -4,32 +4,36 @@ var angle = new Angle(90, (3 / 4) * height);
 angle.draw();
 var angleid = setInterval(function () {
   angle.update();
-}, 50);
+}, 35);
 
+//making hoop
+//values defined in background.js
+var hoop = new Hoop(x_hoop, y_hoop, x_back, y_back, 200);
+
+//making ball
 var ball = new Ball(40, (3 / 4) * height - 100);
 ball.draw();
 
-
-
-var keyPressed = false;
-
-
+//powerpower
 var powertext = document.getElementById("power");
 var powerMeter;
 var power;
-var powerbar=document.getElementById("pbarspan");
+var powerbar = document.getElementById("pbarspan");
 
+var keycode = document.getElementById("keycode");
+var keyy = 1;
 function spacePress(event) {
-  if (event.keyCode == 32 && keyPressed == false) {
+  keycode.innerHTML = "keycode=" + event.keyCode + " freq=" + keyy;
+  keyy += 1;
+  if (event.keyCode == 32 && keyPressed == false && ball.x == ball.xpos) {
     keyPressed = true;
-    power = 0;
-    
+    power = 35;
     powerMeter = setInterval(function () {
-      powerbar.innerHTML=power + "%";
-      powerbar.style.width=power +"%";
+      powerbar.innerHTML = power + "%";
+      powerbar.style.width = power + "%";
       powertext.innerHTML = "power is " + power;
-      power += 2;
-    }, 100);
+      power += 1;
+    }, 200);
   }
 }
 
@@ -38,8 +42,9 @@ var shotid;
 
 function spaceRelease(event) {
   if (event.keyCode == 32 && keyPressed == true) {
+    keyPressed = false;
     clearInterval(powerMeter);
-    clearInterval(angleid);
+    // clearInterval(angleid);
     var tan = (angle.yCenter - angle.y) / (angle.x - angle.xCenter);
     ball.xVel = power * Math.cos(Math.atan(tan));
     ball.yVel = power * Math.sin(Math.atan(tan));
@@ -47,17 +52,19 @@ function spaceRelease(event) {
     shotid = setInterval(function () {
       screen.clear();
       if (ball.x > width || ball.y > height) {
-        angle.draw();
-        var angleid = setInterval(function () {
-          angle.update();
-        }, 50);
+        // angle.draw();
+        // var angleid = setInterval(function () {
+        //   angle.update();
+        // }, 50);
         ball.reset();
         console.log("pehele");
         clearInterval(shotid);
         console.log("baad me");
-        keyPressed = false;
       } else {
         ball.move();
+        if (hoop.collide(ball.x, ball.y) == 1) {
+          ball.xVel *= -1;
+        }
       }
     }, 20);
   }

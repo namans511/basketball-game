@@ -10,14 +10,30 @@ backctx.beginPath();
 //backctx.fillStyle='#a4b494';
 //backctx.fill();
 backctx.fillStyle = "#c87941";
-backctx.fillRect(0, innerHeight/2, innerWidth, innerHeight);
+backctx.fillRect(0, innerHeight / 2, innerWidth, innerHeight);
+
+//anglebackground
+backctx.beginPath();
+angleBackgroundDraw(backctx);
+// backctx.beginPath();
+// backctx.arc(90, (6 * window.height) / 8 + 70, 70, 0, Math.PI, true);
+// backctx.closePath();
+// var grd = backctx.createLinearGradient(0, 0, 200, 0);
+// grd.addColorStop(0.3, "orange");
+// grd.addColorStop(1, "yellow");
+// backctx.lineWidth = 5;
+// backctx.fillStyle = grd;
+// backctx.fill();
+// backctx.strokeStyle = "black";
+// backctx.stroke();
+
+backctx.beginPath();
 backctx.translate(backCanvas.width / 1.8, (2 * backCanvas.height) / 2.8);
 backctx.beginPath();
-backctx.fillStyle="#87431d";
+backctx.fillStyle = "#87431d";
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
 backctx.fill();
 backctx.stroke();
-
 
 //draw line through circle
 backctx.moveTo(0, 100);
@@ -38,7 +54,7 @@ backctx.stroke();
 //draw circle
 backctx.beginPath();
 backctx.translate(-240, 0);
-backctx.fillStyle="#87431d";
+backctx.fillStyle = "#87431d";
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
 backctx.fill();
 backctx.stroke();
@@ -128,44 +144,7 @@ for (var i = 0; i < 5; i++) {
   y1 = y1 + 25;
 }
 
-//angle bar
-
-// var x = -416;
-// var y = 120;
-// var f = 1;
-// var angleid = setInterval(angleDraw, 80);
-
-// function angleDraw() {
-//   //  requestAnimationFrame(animate);
-//   // backctx.clearRect(0,0,innerWidth,innerHeight);
-
-//   //this.direction = -1; // Starts out moving left
-//   //start
-//   backctx.clearRect(-486, 100, 140, 100);
-
-//   backctx.beginPath();
-//   backctx.fillStyle = "green";
-//   backctx.fillRect(-486, 100, 140, 110);
-
-//   backctx.beginPath();
-//   backctx.strokeStyle = "white";
-//   backctx.lineWidth = 2.5;
-//   backctx.moveTo(x, y);
-//   backctx.lineTo(-416, 180);
-//   backctx.stroke();
-//   if (x < -370 && f == 1) {
-//     x++;
-//     y++;
-//   }
-//   if (x > -375) {
-//     f = 2;
-//   }
-//   if (f == 2) {
-//     x--;
-//     y--;
-//   }
-//   if (x < -416) {
-//     f = 1;
-//   }
-// }
-//backctx.closePath();
+var x_back = window.width / 1.8 - 240 + 690;
+var y_back = (2 / 2.8) * window.height - 400;
+var x_hoop = window.width / 1.8 - 240 + 688;
+var y_hoop = (2 / 2.8) * window.height - 300;

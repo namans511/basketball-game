@@ -14,7 +14,8 @@ html {
 }
 
 #power,
-#xy {
+#xy,
+p {
   padding: 10px;
   color: white;
 }
