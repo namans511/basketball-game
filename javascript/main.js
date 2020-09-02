@@ -11,7 +11,7 @@ var x_back = window.width / 1.8 - 240 + 690;
 var y_back = (2 / 2.8) * window.height - 400;
 var x_hoop = window.width / 1.8 - 240 + 688;
 var y_hoop = (2 / 2.8) * window.height - 300;
-var hoop = new Hoop(x_hoop, y_hoop, x_back, y_back, 1000);
+var hoop = new Hoop(x_hoop, y_hoop, x_back, y_back, 200);
 
 //making ball
 var ball = new Ball(40, (3 / 4) * height - 100);
@@ -31,7 +31,7 @@ function spacePress(event) {
   keyy += 1;
   if (event.keyCode == 16 && keyPressed == false) {
     keyPressed = true;
-    power = 8;
+    power = 35;
     powerMeter = setInterval(function () {
       powertext.innerHTML = "power is " + power;
       power += 2;

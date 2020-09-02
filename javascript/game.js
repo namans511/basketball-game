@@ -71,9 +71,9 @@ Angle.prototype.update = function () {
   this.x += this.direction;
   this.y += this.direction;
   // velocityinfo.innerHTML = "x=" + this.x + " y=" + this.y;
-  if (this.y > (3 / 4) * height + 50) {
+  if (this.y > (3 / 4) * height + 30) {
     this.direction = -1;
-  } else if (this.x < 90) {
+  } else if (this.x < 105) {
     this.direction = 1;
   }
 };
