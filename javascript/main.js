@@ -13,7 +13,7 @@ function drawBall() {
   keyPressed = false;
   ypos = 360;
   xpos = 50;
-  yacc = 0.2;
+  yacc = 1;
   yvel = 12;
   xvel = 10;
   power = 0;
