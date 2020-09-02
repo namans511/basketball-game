@@ -1,5 +1,6 @@
 var width = window.innerWidth;
 var height = window.innerHeight;
+var keyPressed = false;
 
 //setting up the screen
 var screen = {
@@ -25,6 +26,8 @@ function Ball(x, y) {
   this.xVel = 0;
   this.yVel = 0;
   this.yAcc = 1;
+  this.xpos = x;
+  this.ypos = y;
 }
 
 Ball.prototype.draw = function () {
@@ -39,8 +42,8 @@ Ball.prototype.move = function () {
 };
 
 Ball.prototype.reset = function () {
-  this.x = 40;
-  this.y = (3 / 4) * height - 100;
+  this.x = this.xpos;
+  this.y = this.ypos;
   this.draw();
 };
 
@@ -71,9 +74,9 @@ Angle.prototype.update = function () {
   this.x += this.direction;
   this.y += this.direction;
   // velocityinfo.innerHTML = "x=" + this.x + " y=" + this.y;
-  if (this.y > (3 / 4) * height + 30) {
+  if (this.y > (3 / 4) * height + 40) {
     this.direction = -1;
-  } else if (this.x < 105) {
+  } else if (this.x < 115) {
     this.direction = 1;
   }
 };
@@ -83,8 +86,6 @@ Angle.prototype.clear = function () {
 };
 
 function angleBackgroundDraw(context) {
-  // context.beginPath();
-  // context.fillStyle = "green";
   context.beginPath();
   context.arc(90, (6 * height) / 8 + 70, 70, 0, Math.PI, true);
   context.closePath();

@@ -142,3 +142,8 @@ for (var i = 0; i < 5; i++) {
   y = y + 25;
   y1 = y1 + 25;
 }
+
+var x_back = window.width / 1.8 - 240 + 690;
+var y_back = (2 / 2.8) * window.height - 400;
+var x_hoop = window.width / 1.8 - 240 + 688;
+var y_hoop = (2 / 2.8) * window.height - 300;

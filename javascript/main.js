@@ -4,20 +4,15 @@ var angle = new Angle(90, (3 / 4) * height);
 angle.draw();
 var angleid = setInterval(function () {
   angle.update();
-}, 50);
+}, 35);
 
 //making hoop
-var x_back = window.width / 1.8 - 240 + 690;
-var y_back = (2 / 2.8) * window.height - 400;
-var x_hoop = window.width / 1.8 - 240 + 688;
-var y_hoop = (2 / 2.8) * window.height - 300;
+//values defined in background.js
 var hoop = new Hoop(x_hoop, y_hoop, x_back, y_back, 200);
 
 //making ball
 var ball = new Ball(40, (3 / 4) * height - 100);
 ball.draw();
-
-var keyPressed = false;
 
 //powerpower
 var powertext = document.getElementById("power");
@@ -29,12 +24,12 @@ var keyy = 1;
 function spacePress(event) {
   keycode.innerHTML = "keycode=" + event.keyCode + " freq=" + keyy;
   keyy += 1;
-  if (event.keyCode == 16 && keyPressed == false) {
+  if (event.keyCode == 32 && keyPressed == false && ball.x == ball.xpos) {
     keyPressed = true;
     power = 35;
     powerMeter = setInterval(function () {
       powertext.innerHTML = "power is " + power;
-      power += 2;
+      power += 1;
     }, 200);
   }
 }
@@ -43,7 +38,8 @@ var velocityinfo = document.getElementById("xy");
 var shotid;
 
 function spaceRelease(event) {
-  if (event.keyCode == 16 && keyPressed == true) {
+  if (event.keyCode == 32 && keyPressed == true) {
+    keyPressed = false;
     clearInterval(powerMeter);
     // clearInterval(angleid);
     var tan = (angle.yCenter - angle.y) / (angle.x - angle.xCenter);
@@ -61,7 +57,6 @@ function spaceRelease(event) {
         console.log("pehele");
         clearInterval(shotid);
         console.log("baad me");
-        keyPressed = false;
       } else {
         ball.move();
         if (hoop.collide(ball.x, ball.y) == 1) {
