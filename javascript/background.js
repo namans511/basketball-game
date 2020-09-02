@@ -9,11 +9,15 @@ backCanvas.height = window.innerHeight;
 backctx.beginPath();
 //backctx.fillStyle='#a4b494';
 //backctx.fill();
-backctx.fillStyle = "#838383";
-backctx.fillRect(1, 280, innerWidth, innerHeight);
+backctx.fillStyle = "#c87941";
+backctx.fillRect(0, innerHeight/2, innerWidth, innerHeight);
 backctx.translate(backCanvas.width / 1.8, (2 * backCanvas.height) / 2.8);
+backctx.beginPath();
+backctx.fillStyle="#87431d";
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
+backctx.fill();
 backctx.stroke();
+
 
 //draw line through circle
 backctx.moveTo(0, 100);
@@ -34,7 +38,9 @@ backctx.stroke();
 //draw circle
 backctx.beginPath();
 backctx.translate(-240, 0);
+backctx.fillStyle="#87431d";
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
+backctx.fill();
 backctx.stroke();
 
 //draw line through circle
@@ -58,7 +64,7 @@ backctx.fillStyle = "gray";
 backctx.moveTo(733, 0);
 backctx.lineTo(733, -400);
 backctx.lineWidth = 15;
-backctx.strokeStyle = "#2d4059";
+backctx.strokeStyle = "#290001";
 backctx.stroke();
 
 backctx.beginPath();
@@ -66,7 +72,7 @@ backctx.moveTo(733, -360);
 backctx.lineTo(690, -360);
 backctx.lineCap = "round";
 backctx.lineWidth = 8;
-backctx.strokeStyle = "#2d4059";
+backctx.strokeStyle = "#290001";
 backctx.stroke();
 
 backctx.beginPath();
@@ -74,7 +80,7 @@ backctx.moveTo(733, -300);
 backctx.lineTo(690, -300);
 backctx.lineCap = "round";
 backctx.lineWidth = 8;
-backctx.strokeStyle = "#2d4059";
+backctx.strokeStyle = "#290001";
 backctx.stroke();
 
 backctx.beginPath();
@@ -82,7 +88,7 @@ backctx.moveTo(690, -400);
 backctx.lineTo(690, -250);
 backctx.lineCap = "round";
 backctx.lineWidth = 8;
-backctx.strokeStyle = "#2d4059";
+backctx.strokeStyle = "#290001";
 backctx.stroke();
 
 backctx.beginPath();

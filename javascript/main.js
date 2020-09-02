@@ -17,15 +17,19 @@ var keyPressed = false;
 var powertext = document.getElementById("power");
 var powerMeter;
 var power;
+var powerbar=document.getElementById("pbarspan");
 
 function spacePress(event) {
   if (event.keyCode == 32 && keyPressed == false) {
     keyPressed = true;
-    power = 8;
+    power = 0;
+    
     powerMeter = setInterval(function () {
+      powerbar.innerHTML=power + "%";
+      powerbar.style.width=power +"%";
       powertext.innerHTML = "power is " + power;
       power += 2;
-    }, 200);
+    }, 100);
   }
 }
 
