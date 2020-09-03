@@ -8,7 +8,7 @@ var angleid = setInterval(function () {
 
 //making hoop
 //values defined in background.js
-var hoop = new Hoop(x_hoop, y_hoop, x_back, y_back, 200);
+var hoop = new Hoop(x_hoop, y_hoop, 133, x_back, y_back, 200);
 
 //making ball
 var ball = new Ball(40, (3 / 4) * height - 100);
@@ -62,10 +62,44 @@ function spaceRelease(event) {
         console.log("baad me");
       } else {
         ball.move();
-        if (hoop.collide(ball.x, ball.y) == 1) {
+        var collsion = hoop.collide(ball.x, ball.y);
+        if (collsion == 2) {
+          // window.alert("score");
+          score += 1;
+          updateScore();
+          ball.scoreAnimation();
+        }
+        if (collsion == 1) {
           ball.xVel *= -1;
+          // window.alert("collide");
         }
       }
     }, 20);
   }
 }
+
+function movemouse(event) {
+  let posx = event.clientX;
+  let posy = event.clientY;
+  var pos = document.getElementById("mousemove");
+  pos.innerHTML = "x=" + posx + " y=" + posy;
+}
+
+var scoretext = document.getElementById("score");
+var score = 0;
+function updateScore() {
+  scoretext.innerHTML = "score=" + score;
+}
+
+keycode.innerHTML =
+  "x=" +
+  hoop.x +
+  " y=" +
+  hoop.y +
+  " len=" +
+  hoop.hooplen +
+  " ballx" +
+  ball.x +
+  " bally=" +
+  ball.y;
+keycode.style.color = "white";

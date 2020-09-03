@@ -47,6 +47,10 @@ Ball.prototype.reset = function () {
   this.draw();
 };
 
+Ball.prototype.scoreAnimation = function () {
+  this.xVel = 0;
+};
+
 //setting up the angle pointer
 //x=90
 //y=3/4 * canvas.height
@@ -99,15 +103,18 @@ function angleBackgroundDraw(context) {
   context.stroke();
 }
 
-function Hoop(x, y, backx, backy, backheight) {
+function Hoop(x, y, hooplen, backx, backy, backheight) {
   this.x = x;
   this.y = y;
+  this.hooplen = hooplen;
   this.backx = backx;
   this.backy = backy;
   this.backheight = backheight;
 }
 
 Hoop.prototype.collide = function (x, y) {
+  var btx = x + 50;
+  var bty = y + 50;
   if (
     x + 100 > this.backx &&
     y + 50 > this.backy &&
@@ -115,5 +122,12 @@ Hoop.prototype.collide = function (x, y) {
   ) {
     return 1;
   }
-  return 0;
+  if (
+    btx > this.x - this.hooplen &&
+    btx < this.x + 10 &&
+    bty > this.y - 5 &&
+    bty < this.y + 5
+  ) {
+    return 2;
+  } else return 0;
 };

@@ -6,12 +6,18 @@
     <title>Game</title>
     <link rel="stylesheet" href="css/background.css" />
   </head>
-  <body onkeydown="spacePress(event)" onkeyup="spaceRelease(event)">
+  <body
+    onkeydown="spacePress(event)"
+    onkeyup="spaceRelease(event)"
+    onmousemove="movemouse(event)"
+  >
     <div id="screen">
       <div id="pbar"><div id="pbarspan">50%</div></div>
       <p id="power">this is powah</p>
       <p id="xy">this is coordinates</p>
       <p id="keycode">keyyyy</p>
+      <p id="mousemove">mouse pos lol</p>
+      <p id="score">score is here</p>
       <canvas id="backCanvas"></canvas>
       <canvas id="mainCanvas"></canvas>
     </div>
