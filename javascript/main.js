@@ -77,6 +77,10 @@ function spaceRelease(event) {
     }, 20);
   }
 }
+var fire=document.getElementById("fire");
+ctx.drawImage(fire,425,100,100,200);
+ctx.drawImage(fire,765,100,100,200);
+
 
 function movemouse(event) {
   let posx = event.clientX;

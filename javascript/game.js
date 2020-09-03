@@ -124,7 +124,7 @@ Hoop.prototype.collide = function (x, y) {
   }
   if (
     btx > this.x - this.hooplen &&
-    btx < this.x + 10 &&
+    btx < this.x + 27 &&
     bty > this.y - 5 &&
     bty < this.y + 5
   ) {

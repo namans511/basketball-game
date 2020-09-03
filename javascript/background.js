@@ -15,6 +15,13 @@ backctx.fillRect(0, innerHeight / 2, innerWidth, innerHeight);
 //anglebackground
 backctx.beginPath();
 angleBackgroundDraw(backctx);
+
+// var fire=new Image();
+
+// fire.src="../images/fire.png";
+// fire.onload=function(){
+//   backctx.drawImage(fire,475,200,50,100);
+// }
 // backctx.beginPath();
 // backctx.arc(90, (6 * window.height) / 8 + 70, 70, 0, Math.PI, true);
 // backctx.closePath();
@@ -32,17 +39,19 @@ backctx.translate(backCanvas.width / 1.8, (2 * backCanvas.height) / 2.8);
 backctx.beginPath();
 backctx.fillStyle = "#87431d";
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
+backctx.lineWidth=4;
 backctx.fill();
 backctx.stroke();
 
 //draw line through circle
 backctx.moveTo(0, 100);
 backctx.lineTo(0, -100);
-backctx.lineWidth = 2.5;
+backctx.lineWidth = 4;
 backctx.stroke();
 
 //draw horizontal lines
 backctx.moveTo(0, 100);
+backctx.lineWidth = 4;
 backctx.lineTo(350, 100);
 backctx.stroke();
 backctx.moveTo(0, -100);
@@ -56,8 +65,10 @@ backctx.beginPath();
 backctx.translate(-240, 0);
 backctx.fillStyle = "#87431d";
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
+backctx.lineWidth=4;
 backctx.fill();
 backctx.stroke();
+
 
 //draw line through circle
 backctx.moveTo(0, 100);
@@ -148,3 +159,5 @@ var x_back = window.width / 1.8 - 240 + 690;
 var y_back = (2 / 2.8) * window.height - 400;
 var x_hoop = window.width / 1.8 - 240 + 688;
 var y_hoop = (2 / 2.8) * window.height - 300;
+
+
