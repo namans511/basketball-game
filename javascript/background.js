@@ -16,6 +16,10 @@ backctx.fillRect(0, innerHeight / 2, innerWidth, innerHeight);
 backctx.beginPath();
 angleBackgroundDraw(backctx);
 
+var fire=document.getElementById("fire");
+backctx.drawImage(fire,425,100,100,200);
+backctx.drawImage(fire,765,100,100,200);
+
 // var fire=new Image();
 
 // fire.src="../images/fire.png";
