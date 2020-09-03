@@ -62,9 +62,9 @@ p {
   margin:20px;
    background-image: linear-gradient(
     90deg,
-    rgba(5, 2, 75, 1) 0%,
-    rgba(4, 4, 140, 1) 40%,
-    rgba(115, 108, 241, 1) 100% 
+    rgb(241, 98, 15) 0%,
+    rgb(233, 248, 16) 40%,
+    rgb(165, 235, 52) 100%  
   );
   /*background-color:rgb(36, 238, 177);*/
   border-radius: 20px;
@@ -77,7 +77,7 @@ p {
   width: 50%;
   border-radius: 15px;
   height: 100%;
-  background-color: rgb(21, 2, 56);
+  background-color: rgb(238, 132, 12);
 }
 #score{
   display: inline-block;

@@ -95,7 +95,7 @@ backctx.fillStyle = "gray";
 backctx.moveTo(733, 0);
 backctx.lineTo(733, -400);
 backctx.lineWidth = 15;
-backctx.strokeStyle = "#290001";
+backctx.strokeStyle = "#2c003e";
 backctx.stroke();
 
 backctx.beginPath();
@@ -103,7 +103,7 @@ backctx.moveTo(733, -360);
 backctx.lineTo(690, -360);
 backctx.lineCap = "round";
 backctx.lineWidth = 8;
-backctx.strokeStyle = "#290001";
+backctx.strokeStyle = "#2c003e";
 backctx.stroke();
 
 backctx.beginPath();
@@ -111,7 +111,7 @@ backctx.moveTo(733, -300);
 backctx.lineTo(690, -300);
 backctx.lineCap = "round";
 backctx.lineWidth = 8;
-backctx.strokeStyle = "#290001";
+backctx.strokeStyle = "#2c003e";
 backctx.stroke();
 
 backctx.beginPath();
@@ -119,7 +119,7 @@ backctx.moveTo(690, -400);
 backctx.lineTo(690, -250);
 backctx.lineCap = "round";
 backctx.lineWidth = 8;
-backctx.strokeStyle = "#290001";
+backctx.strokeStyle = "#2c003e";
 backctx.stroke();
 
 backctx.beginPath();
