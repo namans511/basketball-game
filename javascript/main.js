@@ -1,6 +1,7 @@
 screen.setup();
 
-var angle = new Angle(90, (3 / 4) * height);
+//drawing angle
+var angle = new Angle(90, (3 / 4) * height, backctx);
 angle.draw();
 var angleid = setInterval(function () {
   angle.update();

@@ -2,8 +2,6 @@ var backCanvas = document.getElementById("backCanvas");
 var backctx = backCanvas.getContext("2d");
 backCanvas.width = window.innerWidth;
 backCanvas.height = window.innerHeight;
-//backCanvax.width = window.innerWidth;
-//ckCanvax.height = window.innerHeight;
 
 //draw circle
 backctx.beginPath();
@@ -15,17 +13,6 @@ backctx.fillRect(0, innerHeight / 2, innerWidth, innerHeight);
 //anglebackground
 backctx.beginPath();
 angleBackgroundDraw(backctx);
-// backctx.beginPath();
-// backctx.arc(90, (6 * window.height) / 8 + 70, 70, 0, Math.PI, true);
-// backctx.closePath();
-// var grd = backctx.createLinearGradient(0, 0, 200, 0);
-// grd.addColorStop(0.3, "orange");
-// grd.addColorStop(1, "yellow");
-// backctx.lineWidth = 5;
-// backctx.fillStyle = grd;
-// backctx.fill();
-// backctx.strokeStyle = "black";
-// backctx.stroke();
 
 backctx.beginPath();
 backctx.translate(backCanvas.width / 1.8, (2 * backCanvas.height) / 2.8);

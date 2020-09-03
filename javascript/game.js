@@ -14,7 +14,7 @@ var screen = {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
 };
-var ctx = screen.context;
+// var ctx = screen.context;
 
 //setting up the basketball
 //x=40
@@ -54,9 +54,10 @@ Ball.prototype.scoreAnimation = function () {
 //setting up the angle pointer
 //x=90
 //y=3/4 * canvas.height
-function Angle(x, y) {
+function Angle(x, y, context) {
   this.x = x;
   this.y = y;
+  this.context = context;
   this.xCenter = 90;
   this.yCenter = (3 / 4) * height + 70;
   this.direction = 1;
@@ -124,7 +125,7 @@ Hoop.prototype.collide = function (x, y) {
   }
   if (
     btx > this.x - this.hooplen &&
-    btx < this.x + 10 &&
+    btx < this.x + 25 &&
     bty > this.y - 5 &&
     bty < this.y + 5
   ) {

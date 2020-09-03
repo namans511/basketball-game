@@ -27,7 +27,6 @@ p {
     rgba(5, 2, 75, 1) 0%,
     rgba(4, 4, 140, 1) 40%,
     rgba(115, 108, 241, 1) 100% */
-  );
   /* overflow: hidden; */
   position: absolute;
   left: 0%;
@@ -47,20 +46,25 @@ p {
   padding: 20px;
 }
 
-#pbar{
-  position: absolute;
+#pbar {
+  /* position: absolute; */
   width: 25%;
   height: 25%;
-  margin:20px;
-  background-color:rgb(238, 250, 67);
+  margin: 20px;
+  background-color: rgb(238, 250, 67);
   border-radius: 10px;
-  padding:0px;
+  padding: 0px;
   display: inline-block;
-  
 }
-#pbarspan{
+#pbarspan {
   display: inline-block;
   width: 50%;
   height: 100%;
   background-color: rgb(252, 92, 0);
+}
+
+#debug {
+  display: inline-block;
+  position: absolute;
+  left: 40%;
 }
