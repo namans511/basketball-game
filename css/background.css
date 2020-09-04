@@ -19,6 +19,8 @@ body {
 
 #screen {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 #power,
@@ -30,6 +32,7 @@ p {
 
 #backCanvas {
   background-image: url(../images/brick.jpg);
+  /* background-size: 100% 50%; */
   /* background-image: linear-gradient(
     90deg,
     rgba(5, 2, 75, 1) 0%,
@@ -88,11 +91,13 @@ p {
   font-size: 20px;
   background-color: rgb(119, 8, 8);
 }
+
 #text {
   position: absolute;
   font-size: 40px;
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: auto;
+  margin-left: 40%;
   font-weight: bold;
   /* margin-left: 510px; */
   margin-top: 7%;
@@ -119,4 +124,19 @@ p {
   display: inline-block;
   position: absolute;
   left: 40%;
+  display: none;
+}
+
+#level {
+  position: absolute;
+  font-size: 40px;
+  display: inline-block;
+  width: 50%;
+  font-weight: bold;
+  margin-left: 40%;
+  /* margin-top: */
+  font-family: "Courier New", Courier, monospace;
+  font-style: italic;
+  /* color: rgb(17, 5, 0); */
+  color: white;
 }

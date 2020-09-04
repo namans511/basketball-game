@@ -15,8 +15,8 @@ backctx.beginPath();
 angleBackgroundDraw(backctx);
 
 //drawing the torches
-// var fire = new Image();
-// fire.src = "images/fire.png";
+var fire = new Image();
+fire.src = "images/fire.png";
 backctx.drawImage(fire, 425, 100, 100, 200);
 backctx.drawImage(fire, 765, 100, 100, 200);
 

@@ -107,11 +107,22 @@ function updateScore() {
     message.innerHTML = "Amazing!";
   } else if (score == 5) {
     message.innerHTML = "You're on fire";
-  } else if (score == 7) {
+  } else if (score == 8) {
     message.innerHTML = "You are OP";
   } else if (score == 10) {
     message.innerHTML = "GG";
+    levelchange();
   }
+}
+
+var level = document.getElementById("level");
+function levelchange() {
+  level.innerHTML = "LEVEL-2";
+  level.style.color = "rgb(17, 5, 0)";
+  backCanvas.style.background = "url(../images/tree.jpg)";
+  backCanvas.style.backgroundSize = "100% 50%";
+  score = 0;
+  score.innerHTML = "score";
 }
 
 //TODO: DELETE THIS TOO
@@ -134,3 +145,5 @@ keycode.innerHTML =
   " bally=" +
   ball.y;
 keycode.style.color = "white";
+
+// var background = document.getElementById("background")
