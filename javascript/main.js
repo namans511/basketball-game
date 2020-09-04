@@ -1,6 +1,6 @@
 //setting up the screen, initialising the canvas context
 screen.setup();
-
+// screen.context.translate(0, 50);
 //drawing angle
 var angle = new Angle(90, (3 / 4) * height, backctx);
 angle.draw();
@@ -42,10 +42,11 @@ function spacePress(event) {
     keyPressed = true;
     power = 35;
     powerMeter = setInterval(function () {
-      powerbar.innerHTML = power - 34 + "%";
-      powerbar.style.width = power - 34 + "%";
+      powerbar.innerHTML = power - 34;
+      let percentage = (power - 35) * 10;
+      powerbar.style.width = 100 - percentage + "%";
       powertext.innerHTML = "power is " + power;
-      if (power != 100) power += 1;
+      if (power != 45) power += 1;
     }, 200);
   }
 }
@@ -106,23 +107,27 @@ function updateScore() {
     message.style.visibility = "visible";
     message.innerHTML = "Amazing!";
   } else if (score == 5) {
-    message.innerHTML = "You're on fire";
+    message.innerHTML = "On fire";
   } else if (score == 8) {
     message.innerHTML = "You are OP";
   } else if (score == 10) {
     message.innerHTML = "GG";
-    levelchange();
+    if (lvl == 1) levelchange();
   }
 }
 
 var level = document.getElementById("level");
+var lvl = 1;
 function levelchange() {
   level.innerHTML = "LEVEL-2";
   level.style.color = "rgb(17, 5, 0)";
-  backCanvas.style.background = "url(../images/tree.jpg)";
+  backctx.clearRect(0, 0, width, height);
+  backCanvas.style.background = "url(images/tree.jpg)";
   backCanvas.style.backgroundSize = "100% 50%";
   score = 0;
   score.innerHTML = "score";
+  backctx.clearRect(0, 0, width, height);
+  drawBackground("#00416d", "#393b44");
 }
 
 //TODO: DELETE THIS TOO
