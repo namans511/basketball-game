@@ -14,16 +14,11 @@ backctx.fillRect(0, innerHeight / 2, innerWidth, innerHeight);
 backctx.beginPath();
 angleBackgroundDraw(backctx);
 
-var fire = document.getElementById("fire");
+//drawing the torches
+// var fire = new Image();
+// fire.src = "images/fire.png";
 backctx.drawImage(fire, 425, 100, 100, 200);
 backctx.drawImage(fire, 765, 100, 100, 200);
-
-// var fire=new Image();
-
-// fire.src="../images/fire.png";
-// fire.onload=function(){
-//   backctx.drawImage(fire,475,200,50,100);
-// }
 
 backctx.beginPath();
 backctx.translate(backCanvas.width / 1.8, (2 * backCanvas.height) / 2.8);

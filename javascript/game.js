@@ -14,13 +14,14 @@ var screen = {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
 };
+
 // var ctx = screen.context;
 
 //setting up the basketball
 //x=40
 //y=3/4*height
-function Ball(x, y) {
-  this.ballimg = document.getElementById("basketball");
+function Ball(ballimg, x, y) {
+  this.ballimg = ballimg;
   this.x = x;
   this.y = y;
   this.xVel = 0;
@@ -116,6 +117,7 @@ function Hoop(x, y, hooplen, backx, backy, backheight) {
 Hoop.prototype.collide = function (x, y) {
   var btx = x + 50;
   var bty = y + 50;
+  //backboard collision
   if (
     x + 100 > this.backx &&
     y + 50 > this.backy &&
@@ -123,11 +125,21 @@ Hoop.prototype.collide = function (x, y) {
   ) {
     return 1;
   }
+  //hoop front collision
   if (
-    btx > this.x - this.hooplen &&
+    x + 75 > this.x - this.hooplen - 10 &&
+    x + 75 < this.x - this.hooplen + 10 &&
+    y + 80 > this.y - 15 &&
+    y + 80 < this.y + 40
+  ) {
+    return 1;
+  }
+  //score
+  if (
+    btx > this.x - this.hooplen + 10 &&
     btx < this.x + 27 &&
-    bty > this.y - 5 &&
-    bty < this.y + 5
+    bty > this.y - 10 &&
+    bty < this.y + 10
   ) {
     return 2;
   } else return 0;
