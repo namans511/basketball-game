@@ -7,16 +7,16 @@ backCanvas.height = window.innerHeight;
 backctx.beginPath();
 //backctx.fillStyle='#a4b494';
 //backctx.fill();
-backctx.fillStyle = "#c87941";
+backctx.fillStyle = "#00416d";
 backctx.fillRect(0, innerHeight / 2, innerWidth, innerHeight);
 
 //anglebackground
 backctx.beginPath();
 angleBackgroundDraw(backctx);
 
-var fire = document.getElementById("fire");
-backctx.drawImage(fire, 425, 100, 100, 200);
-backctx.drawImage(fire, 765, 100, 100, 200);
+// var fire = document.getElementById("fire");
+// backctx.drawImage(fire, 425, 100, 100, 200);
+// backctx.drawImage(fire, 765, 100, 100, 200);
 
 // var fire=new Image();
 
@@ -28,7 +28,7 @@ backctx.drawImage(fire, 765, 100, 100, 200);
 backctx.beginPath();
 backctx.translate(backCanvas.width / 1.8, (2 * backCanvas.height) / 2.8);
 backctx.beginPath();
-backctx.fillStyle = "#87431d";
+backctx.fillStyle = "#393b44";
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
 backctx.lineWidth = 4;
 backctx.fill();
@@ -54,7 +54,7 @@ backctx.stroke();
 //draw circle
 backctx.beginPath();
 backctx.translate(-240, 0);
-backctx.fillStyle = "#87431d";
+backctx.fillStyle = "#393b44";
 backctx.arc(0, 0, 100, 0, 2 * Math.PI);
 backctx.lineWidth = 4;
 backctx.fill();
