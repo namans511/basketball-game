@@ -4,6 +4,13 @@
   background-repeat: no-repeat;
   position: relative;
 }
+.ourname{
+  position: absolute;
+  left: 67%;
+  top: 78vh;
+  font-size: 25px;
+  color: aliceblue;
+}
 
 .startButton {
   padding: 10px;
