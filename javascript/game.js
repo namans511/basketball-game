@@ -29,6 +29,7 @@ function Ball(ballimg, x, y) {
   this.yAcc = 1;
   this.xpos = x;
   this.ypos = y;
+  this.scored = false;
 }
 
 Ball.prototype.draw = function () {
@@ -79,10 +80,21 @@ Angle.prototype.update = function () {
   this.draw();
   this.x += this.direction;
   this.y += this.direction;
-  // velocityinfo.innerHTML = "x=" + this.x + " y=" + this.y;
   if (this.y > (3 / 4) * height + 40) {
     this.direction = -1;
-  } else if (this.x < 115) {
+  } else if (this.x < 110) {
+    this.direction = 1;
+  }
+};
+
+Angle.prototype.update2 = function () {
+  this.clear();
+  this.draw();
+  this.x += this.direction;
+  this.y += this.direction;
+  if (this.y > (3 / 4) * height + 40) {
+    this.direction = -1;
+  } else if (this.x < 100) {
     this.direction = 1;
   }
 };
@@ -136,11 +148,27 @@ Hoop.prototype.collide = function (x, y) {
   }
   //score
   if (
-    btx > this.x - this.hooplen + 10 &&
+    btx > this.x - this.hooplen &&
     btx < this.x + 27 &&
     bty > this.y - 10 &&
     bty < this.y + 10
   ) {
     return 2;
+  }
+  if (
+    x + 88 > this.x - 15 &&
+    x + 88 < this.x + 30 &&
+    y + 88 > this.y - 30 &&
+    y + 88 < this.y + 30
+  ) {
+    return 3;
+  }
+  if (
+    x + 95 > this.x - 5 &&
+    x + 95 < this.x + 5 &&
+    y + 50 > this.y - 3 &&
+    y + 50 < this.y + 30
+  ) {
+    return 3;
   } else return 0;
 };

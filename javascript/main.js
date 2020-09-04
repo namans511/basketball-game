@@ -78,29 +78,39 @@ function spaceRelease(event) {
         // }, 50);
         ball.reset();
         clearInterval(shotid);
+        if (!ball.scored && lvl == 2) {
+          clearScore();
+        }
+        ball.scored = false;
         // window.alert("baad me");
       } else {
         ball.move();
         var collsionStatus = hoop.collide(ball.x, ball.y);
         //score
         if (collsionStatus == 2) {
-          // window.alert("score");
+          ball.scored = true;
           score += 1;
           updateScore();
+          ball.x = hoop.x - hoop.hooplen / 2 - 50;
           ball.scoreAnimation();
         }
         if (collsionStatus == 1) {
           ball.xVel *= -1;
-          // window.alert("collide");
+          ball.xVel -= 4;
+        }
+        if (collsionStatus == 3) {
+          ball.xVel *= -1;
+          ball.yVel *= -1;
         }
       }
-    }, 20);
+    }, 19);
   }
 }
 
 var scoretext = document.getElementById("score");
 var message = document.getElementById("text");
-var score = 0;
+var score = 8;
+
 function updateScore() {
   scoretext.innerHTML = "score=" + score;
   if (score == 3) {
@@ -116,9 +126,15 @@ function updateScore() {
   }
 }
 
+function clearScore() {
+  score = 0;
+  scoretext.innerHTML = "score=" + score;
+}
+
 var level = document.getElementById("level");
 var lvl = 1;
 function levelchange() {
+  lvl = 2;
   level.innerHTML = "LEVEL-2";
   level.style.color = "rgb(17, 5, 0)";
   backctx.clearRect(0, 0, width, height);
@@ -128,6 +144,10 @@ function levelchange() {
   score.innerHTML = "score";
   backctx.clearRect(0, 0, width, height);
   drawBackground("#00416d", "#393b44");
+  clearInterval(angleid);
+  angleid = setInterval(function () {
+    angle.update2();
+  }, 27);
 }
 
 //TODO: DELETE THIS TOO
