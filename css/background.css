@@ -120,13 +120,6 @@ p {
   font-style: cursive;
 }
 
-#debug {
-  display: inline-block;
-  position: absolute;
-  left: 40%;
-  display: none;
-}
-
 #level {
   position: absolute;
   font-size: 40px;

@@ -22,22 +22,11 @@ imgball.onload = function () {
 };
 
 //powerpower
-//TODO: detele powertext and subsequent references
-var powertext = document.getElementById("power");
 var powerMeter;
 var power;
 var powerbar = document.getElementById("pbarspan");
 
-//TODO: DELETE these keys
-var keycode = document.getElementById("keycode");
-var keyy = 1;
-
 function spacePress(event) {
-  keycode.innerHTML = "keycode=" + event.keyCode + " freq=" + keyy;
-  keyy += 1;
-  if (event.keyCode == 16) {
-    console.log(fire.src);
-  }
   if (event.keyCode == 32 && keyPressed == false && ball.x == ball.xpos) {
     keyPressed = true;
     power = 35;
@@ -45,14 +34,10 @@ function spacePress(event) {
       powerbar.innerHTML = power - 34;
       let percentage = (power - 35) * 10;
       powerbar.style.width = 100 - percentage + "%";
-      powertext.innerHTML = "power is " + power;
       if (power != 45) power += 1;
     }, 200);
   }
 }
-
-//TODO: delete velinfo
-var velocityinfo = document.getElementById("xy");
 
 var shotid;
 
@@ -60,29 +45,21 @@ function spaceRelease(event) {
   if (event.keyCode == 32 && keyPressed == true) {
     keyPressed = false;
     clearInterval(powerMeter);
-    // clearInterval(angleid);
 
     //calculating component x and y velocity
     var tan = (angle.yCenter - angle.y) / (angle.x - angle.xCenter);
     ball.xVel = power * Math.cos(Math.atan(tan));
     ball.yVel = power * Math.sin(Math.atan(tan));
-    //TODO: delete this
-    velocityinfo.innerHTML = "xvel=" + ball.xVel + " yvel=" + ball.yVel;
 
     shotid = setInterval(function () {
       screen.clear();
       if (ball.x > width || ball.y > height) {
-        // angle.draw();
-        // var angleid = setInterval(function () {
-        //   angle.update();
-        // }, 50);
         ball.reset();
         clearInterval(shotid);
         if (!ball.scored && lvl == 2) {
           clearScore();
         }
         ball.scored = false;
-        // window.alert("baad me");
       } else {
         ball.move();
         var collsionStatus = hoop.collide(ball.x, ball.y);
@@ -131,6 +108,7 @@ function clearScore() {
   scoretext.innerHTML = "score=" + score;
 }
 
+//changing level to 2
 var level = document.getElementById("level");
 var lvl = 1;
 function levelchange() {
@@ -149,26 +127,3 @@ function levelchange() {
     angle.update2();
   }, 27);
 }
-
-//TODO: DELETE THIS TOO
-function movemouse(event) {
-  let posx = event.clientX;
-  let posy = event.clientY;
-  var pos = document.getElementById("mousemove");
-  pos.innerHTML = "x=" + posx + " y=" + posy;
-}
-
-keycode.innerHTML =
-  "x=" +
-  hoop.x +
-  " y=" +
-  hoop.y +
-  " len=" +
-  hoop.hooplen +
-  " ballx" +
-  ball.x +
-  " bally=" +
-  ball.y;
-keycode.style.color = "white";
-
-// var background = document.getElementById("background")

@@ -162,13 +162,5 @@ Hoop.prototype.collide = function (x, y) {
     y + 88 < this.y + 30
   ) {
     return 3;
-  }
-  if (
-    x + 95 > this.x - 5 &&
-    x + 95 < this.x + 5 &&
-    y + 50 > this.y - 3 &&
-    y + 50 < this.y + 30
-  ) {
-    return 3;
   } else return 0;
 };
