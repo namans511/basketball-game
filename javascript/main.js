@@ -109,7 +109,7 @@ function spaceRelease(event) {
 
 var scoretext = document.getElementById("score");
 var message = document.getElementById("text");
-var score = 8;
+var score = 0;
 
 function updateScore() {
   scoretext.innerHTML = "score=" + score;

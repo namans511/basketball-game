@@ -19,11 +19,19 @@
   left: 63%;
   top: 100px;
   font-size: 50px;
-  color: darkgoldenrod;
+  color: rgb(218, 163, 24);
 }
 
 .body{
     background-color: rgb(7, 5, 0);
+}
+.ourname{
+  position: absolute;
+  left: 65%;
+  top: 75vh;
+  font-size: 30px;
+  color: rgb(248, 244, 234);
+
 }
 
 a,
